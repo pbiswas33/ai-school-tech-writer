@@ -45,7 +45,7 @@ def call_openai(prompt):
         return parser.invoke(input=messages)
     except Exception as e:
         print(f"Error making LLM: {e}")
-        return "An error occured while processing the request. Please try again later."
+        return f"Error making LLM: {e}"
 
 def update_readme_and_create_pr(repo, updated_readme, readme_sha):
     commit_message = "AI COMMIT: Proposed README update based on recent code changes."
