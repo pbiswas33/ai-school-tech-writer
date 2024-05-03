@@ -5,3 +5,5 @@ text
 Fix for - improper assignment
 
 The code changes in this commit fix an issue with improper assignment in the `utility.py` file. The `call_openai` function now correctly uses the response from the AI client for parsing instead of the input messages.
+
+Please let me know if you need any further assistance.
