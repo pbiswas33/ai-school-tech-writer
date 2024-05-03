@@ -38,11 +38,11 @@ def call_openai(prompt):
     try:
         messages = [
             {"role": "system", "content": "You are an AI trained to help updating READMEs based on code changes and commit messages."},
-            {"role": "user", "content": prompt},
+            {"role": "user", "content": prompt}
         ]
         response = client.invoke(input=messages)
         parser = StrOutputParser()
-        return parser.invoke(input=messages)
+        return parser.invoke(input=response)
     except Exception as e:
         print(f"Error making LLM: {e}")
         return f"Error making LLM: {e}"
