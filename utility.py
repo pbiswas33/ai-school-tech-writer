@@ -1,7 +1,5 @@
 import os
 import base64
-from openai import OpenAI
-from openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 
