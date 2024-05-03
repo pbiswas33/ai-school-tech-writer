@@ -1,1 +1,5 @@
-An error occured while processing the request. Please try again later.
+
+Error making LLM: 1 validation error for Generation
+text
+  str type expected (type=type_error.str)
+
