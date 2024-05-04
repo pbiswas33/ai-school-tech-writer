@@ -6,7 +6,7 @@ def main():
     # Initialize GitHub API with token
     g = Github(os.getenv('GITHUB_TOKEN'))
 
-    # Get the repo path and PR number from the environment variables
+    # Retrieve the repository path and the pull request number from the environment variables
     repo_path = os.getenv('REPO_PATH')
     pull_request_number = int(os.getenv('PR_NUMBER'))
     
@@ -29,7 +29,7 @@ def main():
         for file in pull_request.get_files()
     ]
     
-    # Get the commit messages associated with the pull request
+    # Retrieve the commit messages associated with the pull request
     commit_messages = [commit.commit.message for commit in pull_request.get_commits()]
 
     # Format data for OpenAI prompt
