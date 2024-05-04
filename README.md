@@ -4,7 +4,7 @@ This project is a repository for implementing various AI models using OpenAI.
 
 ### Workflow
 
-The workflow `update_readme.yaml` has been updated to include an additional condition check. The workflow will now only trigger the update-readme job if the pull request is merged and does not start with 'AI PR'.
+The workflow `update_readme.yaml` has been updated to include an additional condition check. The workflow will now only trigger the update-readme job if the pull request is merged and does not start with 'AI PR'. A new environment variable `pr_title` has been added to store the pull request title.
 
 ### Error Handling
 
