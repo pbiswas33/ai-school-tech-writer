@@ -40,9 +40,9 @@ def call_openai(prompt):
             {"role": "system", "content": "You are an AI trained to help updating READMEs based on code changes and commit messages."},
             {"role": "user", "content": prompt}
         ]
-        response = client.invoke(input=messages)
+        llm_response = client.invoke(input=messages)
         parser = StrOutputParser()
-        return parser.invoke(input=response)
+        return parser.invoke(input=llm_response)
     except Exception as e:
         print(f"Error making LLM: {e}")
         return f"Error making LLM: {e}"
@@ -57,7 +57,7 @@ def update_readme_and_create_pr(repo, updated_readme, readme_sha):
 
     repo.update_file("README.md", commit_message, updated_readme, readme_sha, branch=new_branch_name)
 
-    pr_title = "AI PR: Update README based on recent change"
+    pr_title = "AI PR: Update README based on recent change done to the code"
     pr_body = "This is an AI PR. Please review the README"
     pull_request = repo.create_pull(title=pr_title, body=pr_body, head=new_branch_name, base="main")
 
