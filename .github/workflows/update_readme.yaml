@@ -9,12 +9,10 @@ jobs:
     name: Update README after PR merge
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true && ${{ !startsWith(github.event.pull_request.title, 'AI PR') }}
-
     steps:
       # Check out the repo to access its content
       - name: Checkout Repository
         uses: actions/checkout@v4
-
       # Set up Python using the latest stable version
       - name: Setup Python
         uses: actions/setup-python@v3
@@ -34,6 +32,9 @@ jobs:
           commit_sha=$(jq -r .pull_request.head.sha "$GITHUB_EVENT_PATH")
           echo "pull_request_number=$pr_num" >> $GITHUB_ENV
           echo "commit_sha=$commit_sha" >> $GITHUB_ENV
+          echo "pr_title=$github.event.pull_request.title"
+          echo "pr_title=$pr_title"
+          echo "start with=$startsWith(github.event.pull_request.title, 'AI PR')"
       # Run the Python script    
       - name: Generate Updated README
         env:
