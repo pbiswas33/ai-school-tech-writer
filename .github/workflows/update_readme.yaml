@@ -8,7 +8,7 @@ jobs:
   update-readme:
     name: Update README after PR merge
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && ${{ !startsWith(github.event.pull_request.title, 'AI PR') }}
 
     steps:
       # Check out the repo to access its content
