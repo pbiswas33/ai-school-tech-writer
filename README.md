@@ -1,7 +1,1 @@
-## Error making LLM: 1 validation error for Generation
-text
-  str type expected (type=type_error.str)
-
-Fix for - improper assignment
-
-The code changes in this commit fix an issue with improper assignment in the `utility.py` file. The `call_openai` function now correctly uses the response from the AI client for parsing instead of the input messages.
+Error making LLM: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-U82DG***************************************5lWJ. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
