@@ -11,7 +11,3 @@ The workflow `update_readme.yaml` has been updated to include an additional cond
 An error occurred while attempting to make LLM. The error code 401 was received with the message: 'Incorrect API key provided: sk-U82DG***************************************5lWJ. You can find your API key at [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)'.
 
 Please ensure to provide the correct API key to avoid this error.
-
----
-
-Feel free to further update the README as needed with additional information or instructions.
