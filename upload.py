@@ -7,8 +7,6 @@ from bs4 import SoupStrainer
 
 import os
 
-os.environ['OPENAI_API_KEY'] = "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"
-os.environ['PINECONE_API_KEY'] = "7d6144c6-b51c-4403-a580-7e565f87c2a3"
 
 # Prep documents to be uploaded to the vector database (Pinecone)
 loader = DirectoryLoader('../', glob="**/*.pdf", loader_cls=PyPDFLoader)
