@@ -9,10 +9,7 @@ from langchain_community.document_loaders.pdf import PyPDFLoader
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QMessageBox, QVBoxLayout, QFileDialog, QHBoxLayout,QTextEdit 
 import os
 
-os.environ['OPENAI_API_KEY'] = "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"
-os.environ['PINECONE_API_KEY'] = "7d6144c6-b51c-4403-a580-7e565f87c2a3"
-os.environ['LANGCHAIN_TRACING_V2'] = "true"
-os.environ['LANGCHAIN_API_KEY'] = "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"
+
 
 class SampleApp(QWidget):
     def __init__(self):
