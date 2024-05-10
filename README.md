@@ -12,6 +12,17 @@ An error occurred while attempting to make LLM. The error code 401 was received 
 
 Please ensure to provide the correct API key to avoid this error.
 
+### UI Implementation
+
+- Added UI functionality to accept PDF uploads and upload them to the Vector Database.
+- Implemented UI to accept prompts and provide responses from the AI model.
+
+### Code Changes
+- Updated `pyqt.py` to include UI implementation for file upload, prompt entry, and response generation.
+- Updated `requirements.txt` to include new dependencies for UI implementation.
+- Added `upload.py` for preparing and uploading documents to the vector database.
+- Updated `utility.py` for improved code structure.
+
 ---
 
 Feel free to further update the README as needed with additional information or instructions.
