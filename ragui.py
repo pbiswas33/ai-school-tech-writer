@@ -7,43 +7,13 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_pinecone import PineconeVectorStore
 from langchain_community.document_loaders.pdf import PyPDFLoader
 from PyQt5.QtCore import QThread, pyqtSignal
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QMessageBox, QVBoxLayout, QFileDialog, QHBoxLayout,QTextEdit 
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QMessageBox, QVBoxLayout, QFileDialog, QHBoxLayout, QTextEdit 
 import os
 
-os.environ['OPENAI_API_KEY'] = "sk-"
-os.environ['PINECONE_API_KEY'] = "7d6144c6"
+os.environ['OPENAI_API_KEY'] = ""
+os.environ['PINECONE_API_KEY'] = ""
 os.environ['LANGCHAIN_TRACING_V2'] = "true"
-os.environ['LANGCHAIN_API_KEY'] = "lsv2"
-
-class ResponseThread(QThread):
-    # Signal to emit the response from the AI
-    response_signal = pyqtSignal(str)
-
-    def __init__(self, prompt, parent=None):
-        # Initialize the QThread
-        super(ResponseThread, self).__init__(parent)
-        # Store the prompt provided by the user
-        self.prompt = prompt
-
-    def run(self):
-        # Initialize the embeddings model with OpenAI's text-embedding model
-        embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
-        # Create a vector store for documents using Pinecone with a specific index name
-        document_vectorstore = PineconeVectorStore(index_name="pdf-dev-textbook", embedding=embeddings)
-        # Convert the document vector store into a retriever to fetch relevant documents
-        retriever = document_vectorstore.as_retriever()
-        # Retrieve documents relevant to the user's prompt
-        context = retriever.get_relevant_documents(self.prompt)
-        # Create a prompt template that includes the user's query and the retrieved context
-        template = PromptTemplate(template="{query} Context: {context}", input_variables=["query", "context"])
-        # Fill the template with the actual query and context
-        prompt_with_context = template.invoke({"query": self.prompt, "context": context})
-        # Initialize the language model with a specific temperature setting
-        llm = ChatOpenAI(temperature=0.7)
-        # Invoke the language model with the prompt that includes context
-        results = llm.invoke(prompt_with_context)
-        # Emit the content received from the language model as a signal
-        self.response_signal.emit(results.content)
+os.environ['LANGCHAIN_API_KEY'] = ""
 
 # This class handles the asynchronous generation of responses from the AI model.
 # It inherits from QThread to run in a separate thread to prevent UI freezing.
@@ -103,7 +73,6 @@ class FileUploadThread(QThread):
         # Emit a signal indicating the number of documents loaded and processed
         self.upload_complete_signal.emit(f"Loaded {len(documents)} splitted documents into the vector store.")
            
-                
 class RAGUIApp(QWidget):
     def __init__(self):
         # Initialize the QWidget base class
@@ -218,6 +187,7 @@ class RAGUIApp(QWidget):
         Updates the response output area with the content received from the response generation thread.
         """
         self.response_output.setPlainText(content)  # Display the generated response in the text area
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = RAGUIApp()
