@@ -10,10 +10,10 @@ from PyQt5.QtCore import QThread, pyqtSignal
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QMessageBox, QVBoxLayout, QFileDialog, QHBoxLayout, QTextEdit 
 import os
 
-os.environ['OPENAI_API_KEY'] = "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"
-os.environ['PINECONE_API_KEY'] = "7d6144c6-b51c-4403-a580-7e565f87c2a3"
+os.environ['OPENAI_API_KEY'] = ""
+os.environ['PINECONE_API_KEY'] = ""
 os.environ['LANGCHAIN_TRACING_V2'] = "true"
-os.environ['LANGCHAIN_API_KEY'] = "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"
+os.environ['LANGCHAIN_API_KEY'] = ""
 
 # This class handles the asynchronous generation of responses from the AI model.
 # It inherits from QThread to run in a separate thread to prevent UI freezing.
